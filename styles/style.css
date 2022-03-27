@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@300;400;800&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EDF2FB;
+    margin: 0;
+    font-size: 1rem;
+    font-family: blinker, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+}
+
+p {
+    font-size: 2rem;
+}
+
+
+/* layout */
+
+
+.app {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding: 1rem;
+    
+}
+
+.app-input {
+    width: 100%;
+    padding: .3em;
+    font-size: 1.5rem;
+    margin-bottom: .5em;
+}
+
+.sort-btn {
+    margin-top: 1em;
+}
+
+.btn {
+    background-color: #0060DF;
+    color: white;
+    padding: 1em 1.5em;
+    text-align: center;
+    cursor: pointer;
+}
+
+.todo-item {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    
+    
+    
+}
+
+.todo-item {
+    padding: 1rem;
+    
+}
+
+.checkbox {
+    order: -1;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    
+}
+
+.todo-task {
+    margin-left: 1em;
+}
+   
+
+.remove-btn {
+    margin-left: auto;
+    background-color: red;
+}
+
+
