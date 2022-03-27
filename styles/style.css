@@ -45,9 +45,7 @@ p {
     margin-bottom: .5em;
 }
 
-.sort-btn {
-    margin-top: 1em;
-}
+
 
 .btn {
     background-color: #0060DF;
@@ -55,10 +53,11 @@ p {
     padding: 1em 1.5em;
     text-align: center;
     cursor: pointer;
+    margin-top: 1em;
 }
 
 .todo-item {
-    width: 60%;
+    width: 100%;
     display: flex;
     align-items: center;
     
@@ -87,6 +86,11 @@ p {
 .remove-btn {
     margin-left: auto;
     background-color: red;
+}
+
+.clearall-btn {
+    background-color: red;
+    text-transform: uppercase;
 }
 
 

@@ -34,28 +34,34 @@ function renderApp(){
     sortBtn.setAttribute("class", "sort-btn btn")
     sortBtn.textContent = "Sort"
 
+    const clearAllBtn = document.createElement('div')
+    clearAllBtn.setAttribute("class", "clearall-btn btn")
+    clearAllBtn.textContent = "Remove all"
+
 
 
     //  Appends input and button to app div
-    app.append(appInput, addBtn, sortBtn)
+    app.append(appInput, addBtn, sortBtn, clearAllBtn)
 
 
     // ------- event input / buttons -------
 
     //  listens for event on button and runs function handleAppInput
-    addBtn.addEventListener('click', () =>{handleAppInput(appInput)})
+    addBtn.addEventListener('click', () =>{handleAppInput(appInput, app)})
             
         
     
     // Listens for keypress "Enter" in input and runs function handleAppInput
     appInput.addEventListener('keydown', (e) =>{
         if (e.key === "Enter") {
-            handleAppInput(appInput)
+            handleAppInput(appInput, app)
         }
     
     })
 
     sortBtn.addEventListener('click', () => {sortingTodo()})
+
+    clearAllBtn.addEventListener('click', () => {clearItems(app)})
 
     
 }
@@ -63,7 +69,7 @@ function renderApp(){
 
 
 
-function handleAppInput(appInput){
+function handleAppInput(appInput, app){
 
     // Checks if there is input then if there is input it creates elements with said input
     if (appInput.value){
@@ -90,7 +96,7 @@ function handleAppInput(appInput){
         todoItem.append(pElement, checkBox)
 
         // appends the above todoItem to body
-        document.body.appendChild(todoItem)
+        app.appendChild(todoItem)
 
         //  simple reset of input once above is done.
         appInput.value = null
@@ -134,6 +140,18 @@ function sortingTodo(){
         })
  
 
+}
+
+function clearItems(app){
+   Array.from(app.children).forEach(item => {
+       if (item.getAttribute('class', 'todo-item') === 'todo-item') {
+           item.remove()
+
+       }
+   })
+    
+
+ 
 }
 
 
