@@ -11,7 +11,7 @@ function renderApp(){
     const body = document.body
 
     // creates element of div with classname app  appends to body 
-    const app = document.createElement("div")
+    const app = document.createElement('div')
     app.setAttribute('class', 'app')
     body.appendChild(app)
 
@@ -24,19 +24,19 @@ function renderApp(){
     
     // Creates element of div with classname of add-btn (div will be styled as a button)
     const addBtn = document.createElement('div')
-    addBtn.setAttribute("class", "app-add-btn btn")
+    addBtn.setAttribute('class', 'app-add-btn btn')
 
     
     // Sets text to div aka button
-    addBtn.textContent = "Add"
+    addBtn.textContent = 'Add'
 
     const sortBtn = document.createElement('div')
-    sortBtn.setAttribute("class", "sort-btn btn")
-    sortBtn.textContent = "Sort"
+    sortBtn.setAttribute('class', 'sort-btn btn')
+    sortBtn.textContent = 'Sort'
 
     const clearAllBtn = document.createElement('div')
-    clearAllBtn.setAttribute("class", "clearall-btn btn")
-    clearAllBtn.textContent = "Remove all"
+    clearAllBtn.setAttribute('class', 'clearall-btn btn')
+    clearAllBtn.textContent = 'Remove all'
 
 
 
@@ -51,9 +51,9 @@ function renderApp(){
             
         
     
-    // Listens for keypress "Enter" in input and runs function handleAppInput
+    // Listens for keypress 'Enter' in input and runs function handleAppInput
     appInput.addEventListener('keydown', (e) =>{
-        if (e.key === "Enter") {
+        if (e.key === 'Enter') {
             handleAppInput(appInput, app)
         }
     
@@ -77,12 +77,12 @@ function handleAppInput(appInput, app){
         
         // Creates a div with classname todo-item
         const todoItem =  document.createElement('div')
-        todoItem.setAttribute("class", "todo-item")
+        todoItem.setAttribute('class', 'todo-item')
         
 
         // Creates a p element with classname of todo-task and sets the text of p to input of user
         const pElement = document.createElement('p')
-        pElement.setAttribute("class", "todo-task")
+        pElement.setAttribute('class', 'todo-task')
         pElement.textContent = appInput.value
 
         // Creates checkbox 
@@ -112,7 +112,7 @@ function handleAppInput(appInput, app){
 function renderRemoveBtn(e, todoItem){
     if (e.target.checked) {
         const removeItemBtn = document.createElement('div')
-        removeItemBtn.setAttribute('class',"remove-btn btn")
+        removeItemBtn.setAttribute('class','remove-btn btn')
         removeItemBtn.textContent = 'Remove'
         todoItem.appendChild(removeItemBtn)
         removeItemBtn.addEventListener('click', (e) =>{
@@ -126,7 +126,7 @@ function renderRemoveBtn(e, todoItem){
 
 
 function sortingTodo(){
-   const todoItems = document.querySelectorAll(".todo-item")
+   const todoItems = document.querySelectorAll('.todo-item')
 
    const arrayTodoitems = []
 
