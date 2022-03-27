@@ -10,11 +10,26 @@ function renderApp(){
     //  ref to DOM body
     const body = document.body
 
+
+    // ------ title h1 -------
+
+    const title = document.createElement('h1')
+    title.setAttribute('class', 'app-title')
+    title.textContent = 'To-do'
+
+    // ------ app div ------- 
+
     // creates element of div with classname app  appends to body 
     const app = document.createElement('div')
     app.setAttribute('class', 'app')
-    body.appendChild(app)
 
+
+
+    // appends above to body
+    body.append(title, app)
+
+
+    
 
     // ------- input / button -------
     
@@ -24,30 +39,35 @@ function renderApp(){
     
     // Creates element of div with classname of add-btn (div will be styled as a button)
     const addBtn = document.createElement('div')
-    addBtn.setAttribute('class', 'app-add-btn btn')
+    addBtn.setAttribute('class', 'add-btn btn')
 
     
     // Sets text to div aka button
     addBtn.textContent = 'Add'
 
+    // Creates element of div with classname sort-btn (div will be styled as a button)
     const sortBtn = document.createElement('div')
     sortBtn.setAttribute('class', 'sort-btn btn')
     sortBtn.textContent = 'Sort'
+    
+    // Creates element of div with classname clearall-btn (div will be styled as a button)
+    const deleteCheckedBtn = document.createElement('div')
+    deleteCheckedBtn.setAttribute('class', 'delete-checked-btn btn')
+    deleteCheckedBtn.textContent = 'Delete checked items'
 
-    const clearAllBtn = document.createElement('div')
-    clearAllBtn.setAttribute('class', 'clearall-btn btn')
-    clearAllBtn.textContent = 'Remove all'
+    
 
+    
 
 
     //  Appends input and button to app div
-    app.append(appInput, addBtn, sortBtn, clearAllBtn)
+    app.append(appInput, addBtn, sortBtn, deleteCheckedBtn)
 
 
     // ------- event input / buttons -------
 
     //  listens for event on button and runs function handleAppInput
-    addBtn.addEventListener('click', () =>{handleAppInput(appInput, app)})
+    addBtn.addEventListener('click', () =>{handleAppInput(appInput, app, sortBtn)})
             
         
     
@@ -59,9 +79,16 @@ function renderApp(){
     
     })
 
+    // When sort button is clicked runs function sortingTodo
     sortBtn.addEventListener('click', () => {sortingTodo()})
 
-    clearAllBtn.addEventListener('click', () => {clearItems(app)})
+    //  Runs function clearItems
+    deleteCheckedBtn.addEventListener('click', () => {
+        clearItems(app)
+        document.querySelector('.delete-checked-btn').classList.add('delete-checked-btn-hide')
+    })
+
+
 
     
 }
@@ -71,6 +98,7 @@ function renderApp(){
 
 function handleAppInput(appInput, app){
 
+    
     // Checks if there is input then if there is input it creates elements with said input
     if (appInput.value){
         
@@ -89,9 +117,11 @@ function handleAppInput(appInput, app){
         const checkBox = document.createElement('input')
         checkBox.setAttribute('type', 'checkbox')
         checkBox.setAttribute('class', 'checkbox' )
+
         //  Adds eventlistener to checkbox runs function renderRemoveBtn
         checkBox.addEventListener('click', (e) => {renderRemoveBtn(e,todoItem)})
-       
+
+     
         // Appends p element and checkbox to div with classname todo-item
         todoItem.append(pElement, checkBox)
 
@@ -104,21 +134,31 @@ function handleAppInput(appInput, app){
     }else {
         console.log(appInput.value)
     }
+    
+    
+
 }
 
 
 
 
 function renderRemoveBtn(e, todoItem){
+    // if checkbox, checked is true creates remove button.
     if (e.target.checked) {
+       
+
+        // Creates element of div with classname of remove-btn
         const removeItemBtn = document.createElement('div')
         removeItemBtn.setAttribute('class','remove-btn btn')
-        removeItemBtn.textContent = 'Remove'
+        removeItemBtn.textContent = 'Remove item'
         todoItem.appendChild(removeItemBtn)
+
+        // adds eventlistener to  button created above 
         removeItemBtn.addEventListener('click', (e) =>{
             e.target.parentNode.remove()
         })
     }else {
+        
         e.target.nextElementSibling.remove()
     }
 
@@ -126,26 +166,33 @@ function renderRemoveBtn(e, todoItem){
 
 
 function sortingTodo(){
+    // Objects of each element with the classname of todo-item
    const todoItems = document.querySelectorAll('.todo-item')
-
+    
+    // Initialze an array, will be used for pushing in text from the dom
    const arrayTodoitems = []
 
+    //   Pushes textcontent from each element targetted in dom into array initialized above.
     todoItems.forEach(item => {
         arrayTodoitems.push(item.firstChild.textContent)
     })
-     arrayTodoitems.sort((a,b) => a.localeCompare(b))
-
+    //  sorted array. String (Might use regex instead)
+     const sortedArrayTodoitems = arrayTodoitems.sort((a,b) => a.localeCompare(b) )
+    
+    //  Sorted array,  new textcontent
      todoItems.forEach((el, index) => {
-        el.firstChild.textContent = arrayTodoitems[index]
+        el.firstChild.textContent = sortedArrayTodoitems[index]
         })
  
 
 }
 
 function clearItems(app){
+    // if element is of classname todo-item and the checkbox in the element is checked, removes the element.
    Array.from(app.children).forEach(item => {
-       if (item.getAttribute('class', 'todo-item') === 'todo-item') {
+       if (item.getAttribute('class', 'todo-item') === 'todo-item' && item.children[1].checked) {
            item.remove()
+           
 
        }
    })

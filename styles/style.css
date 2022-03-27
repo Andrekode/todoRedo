@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@300;400;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@300;400;600;800&display=swap');
 
 /* https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8f4-caf0f8 */
 
@@ -20,8 +20,17 @@ body {
 
 }
 
+h1 {
+    color: #0077B6;
+    text-align: center;
+    font-size: 3rem;
+    margin: 0;
+    
+}
+
 p {
-    font-size: 2rem;
+    font-size: 1.5rem;
+    letter-spacing: .2em;
 }
 
 
@@ -31,9 +40,9 @@ p {
 .app {
     display: flex;
     flex-direction: column;
-    width: 60%;
-    margin-top: 2em;
-    margin-bottom: 2em;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 1em;
     padding: 1rem;
     
 }
@@ -42,8 +51,10 @@ p {
     width: 100%;
     padding: .3em;
     font-size: 1.5rem;
-    margin-bottom: .5em;
+    margin-top: .5em;
 }
+
+
 
 
 
@@ -53,20 +64,39 @@ p {
     padding: 1em 1.5em;
     text-align: center;
     cursor: pointer;
-    margin-top: 1em;
+    font-weight: 600;
+    
 }
+
+
+.add-btn, 
+.sort-btn,
+.delete-checked-btn {
+    margin-top: .5em;
+}
+
+
+
+.delete-checked-btn {
+    background-color: red;
+    text-transform: uppercase;
+    
+}
+
+
+
 
 .todo-item {
     width: 100%;
     display: flex;
-    align-items: center;
-    
-    
+    place-items: center; 
     
 }
 
+
 .todo-item {
     padding: 1rem;
+
     
 }
 
@@ -84,13 +114,12 @@ p {
    
 
 .remove-btn {
-    margin-left: auto;
     background-color: red;
+    margin-left: auto;
+    
+    
+
 }
 
-.clearall-btn {
-    background-color: red;
-    text-transform: uppercase;
-}
 
 
