@@ -83,14 +83,8 @@ function renderApp(){
     sortBtn.addEventListener('click', () => {sortingTodo()})
 
     //  Runs function clearItems
-    deleteCheckedBtn.addEventListener('click', () => {
-        clearItems(app)
-        document.querySelector('.delete-checked-btn').classList.add('delete-checked-btn-hide')
-    })
+    deleteCheckedBtn.addEventListener('click', () => {clearItems(app)})
 
-
-
-    
 }
 
 
@@ -177,10 +171,10 @@ function sortingTodo(){
         arrayTodoitems.push(item.firstChild.textContent)
     })
     //  sorted array. String (Might use regex instead)
-     const sortedArrayTodoitems = arrayTodoitems.sort((a,b) => a.localeCompare(b) )
+    const sortedArrayTodoitems = arrayTodoitems.sort((a,b) => a.localeCompare(b) )
     
     //  Sorted array,  new textcontent
-     todoItems.forEach((el, index) => {
+    todoItems.forEach((el, index) => {
         el.firstChild.textContent = sortedArrayTodoitems[index]
         })
  
