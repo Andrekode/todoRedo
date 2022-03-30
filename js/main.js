@@ -191,17 +191,19 @@ function sortingTodo(){
 
 }
 
-function clearItems(app){
-    // if element is of classname todo-item and the checkbox in the element is checked, removes the element.
-   Array.from(app.children).forEach(item => {
-       if (item.getAttribute('class', 'todo-item') === 'todo-item' && item.children[1].checked) {
-           item.remove()
+//  for future 
+
+// function clearItems(app){
+//     // if element is of classname todo-item and the checkbox in the element is checked, removes the element.
+//    Array.from(app.children).forEach(item => {
+//        if (item.getAttribute('class', 'todo-item') === 'todo-item' && item.children[1].checked) {
+//            item.remove()
            
 
-       }
-   })
+//        }
+//    })
 
-}
+// }
 
 
 
