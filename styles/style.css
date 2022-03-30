@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Blinker:wght@300;400;600;800&display=swap');
 
-/* https://coolors.co/palette/03045e-023e8a-0077b6-0096c7-00b4d8-48cae4-90e0ef-ade8f4-caf0f8 */
+/*https://coolors.co/palette/000000-14213d-fca311-e5e5e5-ffffff*/
 
 
 * {
@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #EDF2FB;
+    background-color: #14213D;
     margin: 0;
     font-size: 1rem;
     font-family: blinker, sans-serif;
@@ -21,7 +21,7 @@ body {
 }
 
 h1 {
-    color: #0077B6;
+    color: #FFFFFF;
     text-align: center;
     font-size: 3rem;
     margin: 0;
@@ -38,8 +38,6 @@ p {
 
 
 .app {
-    display: flex;
-    flex-direction: column;
     width: 100%;
     max-width: 800px;
     margin-top: 1em;
@@ -55,13 +53,26 @@ p {
 }
 
 
+.sort-add-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1em;
+}
+
+.items-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2em;
+   
+}
+
 
 
 
 .btn {
-    background-color: #0060DF;
-    color: white;
-    padding: 1em 1.5em;
+    background-color: #FCA311;
+    color: #000000;
+    padding: .5em 1.5em;
     text-align: center;
     cursor: pointer;
     font-weight: 600;
@@ -72,7 +83,7 @@ p {
 .add-btn, 
 .sort-btn,
 .delete-checked-btn {
-    margin-top: .5em;
+    margin-top: 1em;
 }
 
 
@@ -86,36 +97,49 @@ p {
 
 
 
-.todo-item {
-    width: 100%;
+
+
+.todo-item-input {
     display: flex;
-    place-items: center; 
+    word-break: break-all;
+    border-radius: 15px;
+    padding: 1em;
+    margin-bottom: 1em;
+    color: #000000;
+    background-color: #E5E5E5;
     
 }
+
 
 
 .todo-item {
     padding: 1rem;
-
+    margin-bottom: 2em;
     
 }
 
 .checkbox {
-    order: -1;
+    align-self: center;
     width: 30px;
+    min-width: 30px;
     height: 30px;
     cursor: pointer;
+
     
 }
 
 .todo-task {
-    margin-left: 1em;
+   padding: 1em;
+    align-self: flex-start;
 }
    
 
 .remove-btn {
-    background-color: red;
+    background-color: #FCA311;
+    color: #000000;
+    width: 20%;
     margin-left: auto;
+    
     
     
 
