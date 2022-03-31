@@ -72,7 +72,7 @@ function renderApp(){
     // ------- event input / buttons -------
 
     //  listens for event on button and runs function handleAppInput
-    addBtn.addEventListener('click', () =>{handleAppInput(appInput, sortBtn)})
+    addBtn.addEventListener('click', () => handleAppInput(appInput, sortBtn))
             
         
     
@@ -85,10 +85,10 @@ function renderApp(){
     })
 
     // When sort button is clicked runs function sortingTodo
-    sortBtn.addEventListener('click', () => {sortingTodo()})
+    sortBtn.addEventListener('click', () => sortingTodo())
 
     //  Runs function clearItems
-    deleteCheckedBtn.addEventListener('click', () => {clearItems(app)})
+    deleteCheckedBtn.addEventListener('click', () => clearItems(app))
 
 }
 
@@ -121,7 +121,7 @@ function handleAppInput(appInput){
         checkBox.setAttribute('class', 'checkbox' )
 
         //  Adds eventlistener to checkbox runs function renderRemoveBtn
-        checkBox.addEventListener('click', (e) => {renderRemoveBtn(e,todoItem)})
+        checkBox.addEventListener('click', (e) => renderRemoveBtn(e,todoItem))
 
      
         // Appends p element and checkbox to div with classname todo-item
@@ -148,15 +148,26 @@ function handleAppInput(appInput){
 
 function renderRemoveBtn(e, todoItem){
     // if checkbox, checked is true creates remove button.
-    if (e.target.checked) {
-      
-
+        const {checked} = e.target
+    
+    if (checked) {
+       
+        const buttonsContainer = document.createElement('div')
+        buttonsContainer.setAttribute('class', 'items-buttons-container')
         // Creates element of div with classname of remove-btn
         const removeItemBtn = document.createElement('div')
         removeItemBtn.setAttribute('class','remove-btn btn')
         removeItemBtn.textContent = 'Remove item'
-        todoItem.appendChild(removeItemBtn)
 
+        // const editBtn = document.createElement('div')
+        // editBtn.setAttribute('class','edit-btn btn')
+        // editBtn.textContent = 'Edit'
+
+        // buttonsContainer.append(editBtn, removeItemBtn)
+        todoItem.append(removeItemBtn)
+
+        // editBtn.addEventListener('click', (e) => edit(e, buttonsContainer))
+        
         // adds eventlistener to  button created above 
         removeItemBtn.addEventListener('click', (e) =>{
             e.target.parentNode.remove()
@@ -206,6 +217,20 @@ function sortingTodo(){
 // }
 
 
+// function edit(e, buttonsContainer){
+    
+//     const editInput = document.createElement('input')
+
+//     editInput.setAttribute('type', 'text')
+//     editInput.setAttribute('class', 'edit-input')
+
+//     // buttonsContainer.append(editInput)
+
+//     console.log(e.target.parentNode)
+
+
+
+// }
 
 
 
