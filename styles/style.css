@@ -13,8 +13,7 @@ body {
     font-size: 1rem;
     font-family: blinker, sans-serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    place-items: center;
     flex-direction: column;
 
 
@@ -103,6 +102,7 @@ p {
 .todo-item-input {
     display: flex;
     word-break: break-all;
+    place-items: center;
     border-radius: 15px;
     color: #000000;
     background-color: #E5E5E5;
@@ -115,28 +115,25 @@ p {
 
 
 .todo-item {
-    padding: 1rem;
     display: flex;
     flex-direction: column;
+    margin-bottom: 1em;
     
     
 }
 
 .checkbox {
-    align-self: center;
     width: 30px;
     min-width: 30px;
     height: 30px;
     cursor: pointer;
+    margin-right: 1em;
 
     
 }
 
-.todo-task {
-   padding: 1em;
-   
-   
-}
+
+
 .items-buttons-container {
     display: flex;
     justify-content: space-between;

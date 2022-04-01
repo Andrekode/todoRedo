@@ -154,22 +154,21 @@ function renderRemoveBtn(e, todoItem){
        
         const buttonsContainer = document.createElement('div')
         buttonsContainer.setAttribute('class', 'items-buttons-container')
+        
         // Creates element of div with classname of remove-btn
         const removeItemBtn = document.createElement('div')
         removeItemBtn.setAttribute('class','remove-btn btn')
         removeItemBtn.textContent = 'Remove item'
 
-        // const editBtn = document.createElement('div')
-        // editBtn.setAttribute('class','edit-btn btn')
-        // editBtn.textContent = 'Edit'
-
+        
         // buttonsContainer.append(editBtn, removeItemBtn)
         todoItem.append(removeItemBtn)
 
-        // editBtn.addEventListener('click', (e) => edit(e, buttonsContainer))
+        
         
         // adds eventlistener to  button created above 
         removeItemBtn.addEventListener('click', (e) =>{
+            
             e.target.parentNode.remove()
         })
     }else {
@@ -180,11 +179,12 @@ function renderRemoveBtn(e, todoItem){
 
 
 function sortingTodo(){
+
     // Objects of each element with the classname of todo-item
-   const todoItems = document.querySelectorAll('.todo-item-input')
+    const todoItems = document.querySelectorAll('.todo-item-input')
     
     // Initialze an array, will be used for pushing in text from the dom
-   const arrayTodoitems = []
+    const arrayTodoitems = []
 
     //   Pushes textcontent from each element targetted in dom into array initialized above.
     todoItems.forEach(item => {
@@ -202,35 +202,7 @@ function sortingTodo(){
 
 }
 
-//  for future 
 
-// function clearItems(app){
-//     // if element is of classname todo-item and the checkbox in the element is checked, removes the element.
-//    Array.from(app.children).forEach(item => {
-//        if (item.getAttribute('class', 'todo-item') === 'todo-item' && item.children[1].checked) {
-//            item.remove()
-           
-
-//        }
-//    })
-
-// }
-
-
-// function edit(e, buttonsContainer){
-    
-//     const editInput = document.createElement('input')
-
-//     editInput.setAttribute('type', 'text')
-//     editInput.setAttribute('class', 'edit-input')
-
-//     // buttonsContainer.append(editInput)
-
-//     console.log(e.target.parentNode)
-
-
-
-// }
 
 
 
